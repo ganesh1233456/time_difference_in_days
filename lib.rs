@@ -36,7 +36,7 @@ mod myapp {
             let flip_time = self.flip_time;
 
             // calculate the time difference between flip_time and initial_time
-            let time_difference = flip_time.checked_sub(initial_time);
+            let time_difference = flip_time.checked_sub(initial_time).unwrap_or(0);
 
             // convert the time difference to the number of days
             let days = time_difference
