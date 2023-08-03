@@ -31,7 +31,7 @@ mod myapp {
         }
 
         #[ink(message)]
-        pub fn calculate_days_based_on_time(&self) {
+        pub fn calculate_days_based_on_time(&mut self) {
             let initial_time = self.initial_time;
             let flip_time = self.flip_time;
 
@@ -40,7 +40,6 @@ mod myapp {
 
             // convert the time difference to the number of days
             let days = time_difference
-                .as_secs()
                 .checked_div(86400)
                 .unwrap_or(0);
 
@@ -48,8 +47,8 @@ mod myapp {
         }
 
         #[ink(message)]
-        pub fn get(&self) -> bool {
-            self.value
+        pub fn get(&self) -> u64 {
+            self.days
         }
     }
 }
