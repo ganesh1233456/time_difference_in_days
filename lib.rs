@@ -39,8 +39,11 @@ mod myapp {
             let time_difference = flip_time.checked_sub(initial_time).unwrap_or(0);
 
             // convert the time difference to the number of days
+            // https://www.unixtimestamp.com
+            // 7 days = 604800000 in Unix time
+            let day = 86400000;
             let days = time_difference
-                .checked_div(86400)
+                .checked_div(day)
                 .unwrap_or(0);
 
             self.days = days;
